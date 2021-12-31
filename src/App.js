@@ -3,6 +3,8 @@ import { useState } from 'react';
 import Navv from './Navv';
 import './App.css';
 import Movielist from './Movielist';
+import Desc from './description';
+import { Route } from 'react-router-dom';
 function App() {
   const   [moviedata,setMoviedata]=useState([ {
     id: 0,
@@ -23,21 +25,13 @@ function App() {
       "Nine noble families fight for control over the lands of Westeros, while an ancient enemy returns after being dormant for millennia.",
     trailer: "https://www.youtube.com/embed/gcTkNV5Vg1E",
   },
-  {
-    id: 2,
-    title: "The good doctor",
-    photo: "https://pbs.twimg.com/media/EbNkkiTXsAc2o3Y.jpg",
-    rate: 4.2,
-    description:
-      "Shaun Murphy, a young surgeon with autism and Savant syndrome, is recruited into the surgical unit of a prestigious hospital.",
-    trailer: "https://www.youtube.com/embed/msJggy8xtmI",
-  },
+
   {
     id: 3,
     title: "Breaking bad",
     photo:
       "https://image.tmdb.org/t/p/original/ggFHVNu6YYI5L9pCfOacjizRGt.jpg",
-    rate: 4.5,
+    rate: 4,
     description:
       "A high school chemistry teacher diagnosed with inoperable lung cancer turns to manufacturing and selling methamphetamine in order to secure his family's future.",
     trailer: "https://www.youtube.com/embed/lrcqbavlbyQ",
@@ -47,16 +41,24 @@ function App() {
     title: "Prison Break",
     photo:
       "https://upload.wikimedia.org/wikipedia/en/5/54/Prison-break-season-4-dvd.jpg",
-    rate: 4.2,
+    rate: 4,
     description:
       "Due to a political conspiracy, an innocent man is sent to death row and his only hope is his brother, who makes it his mission to deliberately get himself sent to the same prison in order to break the both of them out, from the inside.",
     trailer: "https://www.youtube.com/embed/AL9zLctDJaU",
   },
 
-
+  
+  {
+    id: 8,
+    title: "Dexter",
+    photo:
+      "https://images-na.ssl-images-amazon.com/images/I/81JKXT1j0OL._SL1500_.jpg",
+    rate: 4,
+    description:
+      "By day, mild-mannered Dexter is a blood-spatter analyst for the Miami police. But at night, he is a serial killer who only targets other murderers.",
+    trailer: "https://www.youtube.com/embed/YQeUmSD1c3g",
+  },
  
-
-
   {
     id: 10,
     title: "Black List",
@@ -67,7 +69,7 @@ function App() {
       "A new FBI profiler, Elizabeth Keen, has her entire life uprooted when a mysterious criminal, Raymond Reddington, who has eluded capture for decades, turns himself in and insists on speaking only to her.",
     trailer: "https://www.youtube.com/embed/XihA6GWIBdM",
   },
- 
+
   {
     id:12,
     title: "Vis A Vis",
@@ -78,7 +80,7 @@ function App() {
       "Locked Up, originally titled in Spanish as Vis A Vis , is a Spanish serial drama television series produced by Globomedia, initially for Spanish Network Antena 3 and later on for Fox Spain. It premiered on 20 April 2015.[2] The series begins by focusing on a young woman who is sent to prison and then goes on to depict the image of prison and law enforcement systems.",
     trailer: "https://www.youtube.com/embed/ceNKwOvSVm8",
   },
-
+  
   {
     id: 14,
     title: "See",
@@ -89,7 +91,7 @@ function App() {
       "Far in a dystopian future, the human race has lost the sense of sight, and society has had to find new ways to interact, build, hunt, and to survive. All of that is challenged when a set of twins is born with sight.",
     trailer: "https://www.youtube.com/embed/7Rg0y7NT1gU",
   },
-
+  
 ])
    
 const [title,setTitle]=useState("")
@@ -98,8 +100,12 @@ const [rate,setRate]=useState(0)
     
     
     <div className="App">
+
+
+      
  <Navv moviedata={moviedata} setMoviedata={setMoviedata} setTitle={setTitle} title={title}  setrate={setRate} rate={rate}/>
- <Movielist  moviedata={moviedata} setMoviedata={setMoviedata} title={title} rate={rate}/>
+ <Route exact path="/" render={()=><Movielist moviedata={moviedata} setMoviedata={setMoviedata} title={title} rate={rate} ></Movielist>}></Route> 
+ <Route  path='/description/:id' render={(props)=><Desc moviedata={moviedata}  {...props}></Desc>}  ></Route>
      
 
 

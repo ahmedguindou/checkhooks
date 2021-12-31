@@ -1,11 +1,24 @@
-.App{margin-left: 50px;margin-right: 50px;}
-.btn{margin-top: 20px;}
-.in {width:400px;height: 35px;margin-left: -310px;}
+.App {
+  margin-left: 50px;
+  margin-right: 50px;
+}
+.btn {
+  margin-top: 20px;
+}
+.in {
+  width: 400px;
+  height: 35px;
+  margin-left: -310px;
+}
 
-.navi{display:flex;justify-content:space-around ;margin-bottom: 50px;}
+.navi {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 50px;
+}
 
-.chan{display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    }
-    
+.chan {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}

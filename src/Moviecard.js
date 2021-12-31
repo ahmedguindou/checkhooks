@@ -3,6 +3,7 @@
 import { Card } from "react-bootstrap"
 import { Button } from "react-bootstrap"
 import ReactStars from "react-rating-stars-component";
+import { Link } from "react-router-dom";
 
 function Moviecard({el}){
 
@@ -23,6 +24,8 @@ function Moviecard({el}){
     value={el.rate}
   />
     <Button variant="primary">Edit Movie</Button>
+
+    <Link to={`/description/${el.id}`}><li>Description and Trailer</li></Link>
   </Card.Body>
 </Card>
        
